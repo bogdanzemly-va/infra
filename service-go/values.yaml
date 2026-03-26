@@ -1,0 +1,13 @@
+replicaCount: 1
+image:
+  repository: zema1309/service-go
+  pullPolicy: Always
+  tag: "latest"
+env:
+  MONGO_URI: "mongodb://mongodb:27017"
+  RABBIT_URL: "amqp://guest:guest@rabbitmq:5672/"
+service:
+  type: ClusterIP
+  port: 8080
+nodeSelector:
+  kubernetes.io/hostname: vm

@@ -1,0 +1,15 @@
+replicaCount: 1
+image:
+  repository: zema1309/service-py
+  pullPolicy: Always
+  tag: "latest"
+env:
+  POSTGRES_DSN: "host=postgres port=5432 dbname=orders user=postgres password=postgres"
+  REDIS_HOST: "redis"
+  REDIS_PORT: "6379"
+  KAFKA_BROKER: "kafka:9092"
+service:
+  type: ClusterIP
+  port: 8080
+nodeSelector:
+  kubernetes.io/hostname: vm
