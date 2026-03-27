@@ -2,7 +2,7 @@ replicaCount: 1
 image:
   repository: zema1309/service-py
   pullPolicy: Always
-  tag: "latest"
+  tag: "0a00f2ddb8c1826bbd330aedac37e84098014c52"
 env:
   POSTGRES_DSN: "host=postgres port=5432 dbname=orders user=postgres password=postgres"
   REDIS_HOST: "redis"
