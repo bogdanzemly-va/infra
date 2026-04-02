@@ -1,0 +1,32 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmChart
+metadata:
+  name: service-py
+  namespace: flux-system
+spec:
+  interval: 1m
+  chart: ./service-py
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: service-py
+  namespace: infra
+spec:
+  interval: 1m
+  chart:
+    spec:
+      chart: ./service-py
+      sourceRef:
+        kind: GitRepository
+        name: flux-system
+        namespace: flux-system
+  values:
+    env:
+      POSTGRES_DSN: "host=postgres.infra.svc.cluster.local port=5432 dbname=orders user=postgres password=postgres"
+      REDIS_HOST: "redis.infra.svc.cluster.local"
+      REDIS_PORT: "6379"
+      KAFKA_BROKER: "kafka.infra.svc.cluster.local:9092"
