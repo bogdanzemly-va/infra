@@ -1,15 +1,3 @@
-apiVersion: source.toolkit.fluxcd.io/v1beta2
-kind: HelmChart
-metadata:
-  name: service-py
-  namespace: flux-system
-spec:
-  interval: 1m
-  chart: ./service-py
-  sourceRef:
-    kind: GitRepository
-    name: flux-system
----
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
