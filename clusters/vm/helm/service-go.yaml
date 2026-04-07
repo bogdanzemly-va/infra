@@ -13,6 +13,8 @@ spec:
         name: flux-system
         namespace: flux-system
   values:
+    nodeSelector:
+      kubernetes.io/hostname: onbording-vm01
     env:
       MONGO_URI: "mongodb://mongo.infra.svc.cluster.local:27017"
       RABBIT_URL: "amqp://guest:guest@rabbitmq.infra.svc.cluster.local:5672/"
