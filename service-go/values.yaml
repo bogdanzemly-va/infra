@@ -10,4 +10,4 @@ service:
   type: ClusterIP
   port: 8080
 nodeSelector:
-  kubernetes.io/hostname: vm
+  kubernetes.io/hostname: onbording-vm01
