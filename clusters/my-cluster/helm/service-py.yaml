@@ -13,6 +13,8 @@ spec:
         name: flux-system
         namespace: flux-system
   values:
+    nodeSelector:
+      kubernetes.io/hostname: onbording-vm01
     env:
       POSTGRES_DSN: "host=postgres.infra.svc.cluster.local port=5432 dbname=orders user=postgres password=postgres"
       REDIS_HOST: "redis.infra.svc.cluster.local"
